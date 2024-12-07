@@ -8,7 +8,9 @@ class PaymentView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffF5F9F8),
       appBar: AppBar(
+        backgroundColor: const Color(0xffF5F9F8),
         centerTitle: true,
         title: const Text('Payment Methods'),
       ),
