@@ -19,7 +19,7 @@ class TotalWidget extends StatelessWidget {
         ),
         Spacer(),
         Text(
-          '\$252',
+          '2200 EGP',
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,

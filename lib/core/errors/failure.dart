@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dio/dio.dart';
 
 class ServerFailure {
@@ -33,13 +35,14 @@ class ServerFailure {
       case 400:
       case 401:
       case 403:
-        return ServerFailure(response['error'] ?? 'Authentication error.');
+        return ServerFailure(response.toString());
       case 404:
         return ServerFailure('Requested resource not found, please try later.');
       case 500:
         return ServerFailure('Internal server error, please try later.');
       default:
-        return ServerFailure('An unexpected error occurred, please try again.');
+        return ServerFailure(
+            'An unexpected error occurred, please try again. $e');
     }
   }
 }

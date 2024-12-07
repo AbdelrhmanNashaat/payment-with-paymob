@@ -3,11 +3,11 @@ import '../../../data/repo/home_repo.dart';
 import 'get_token_state.dart';
 
 class GetTokenCubit extends Cubit<GetTokenState> {
-  final HomeRepo paymentRepo;
-  GetTokenCubit({required this.paymentRepo}) : super(GetTokenInitial());
+  final HomeRepo homeRepo;
+  GetTokenCubit({required this.homeRepo}) : super(GetTokenInitial());
   Future<void> getToken() async {
     emit(GetTokenLoading());
-    final result = await paymentRepo.getToken();
+    final result = await homeRepo.getToken();
     result.fold(
       (l) => emit(
         GetTokenFailure(errorMessage: l.message),

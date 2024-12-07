@@ -14,25 +14,25 @@ class CartListView extends StatelessWidget {
       ItemModel(
         name: 'Polo Shirt for men',
         color: 'blue',
-        price: '30',
+        price: '650',
         image: 'assets/images/shirt.png',
       ),
       ItemModel(
         name: 'Scott Bag',
         color: 'blue , white',
-        price: '42',
+        price: '300',
         image: 'assets/images/backpack.png',
       ),
       ItemModel(
         name: 'Pro Tour Shoes',
         color: 'blue , red',
-        price: '150',
+        price: '800',
         image: 'assets/images/running-shoes.png',
       ),
       ItemModel(
         name: 'T250 Headphones',
         color: 'light blue',
-        price: '30',
+        price: '450',
         image: 'assets/images/headphones.png',
       ),
     ];

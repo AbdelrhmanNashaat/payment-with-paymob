@@ -51,7 +51,7 @@ class CartItem extends StatelessWidget {
                 ),
               ),
               Text(
-                '\$ ${item.price}',
+                '${item.price} EGP',
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

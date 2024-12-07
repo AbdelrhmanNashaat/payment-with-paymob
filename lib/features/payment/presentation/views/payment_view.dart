@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'payment_view_body.dart';
 
 class PaymentView extends StatelessWidget {
-  const PaymentView({super.key});
+  final int orderId;
+  const PaymentView({super.key, required this.orderId});
 
   @override
   Widget build(BuildContext context) {
