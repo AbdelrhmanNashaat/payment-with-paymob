@@ -28,5 +28,5 @@ steps to integrate payment gateway in flutter
 /*
 Steps to integrate paymob
 1. use the api to get token that is only available for only one hour
-2. use the api to get order id
+2. use the api to get order token
 */

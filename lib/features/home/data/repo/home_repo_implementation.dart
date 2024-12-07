@@ -32,7 +32,7 @@ class HomeRepoImplementation extends HomeRepo {
   }
 
   @override
-  Future<Either<ServerFailure, String>> getOrderId({
+  Future<Either<ServerFailure, int>> getOrderId({
     required String authToken,
     required String deliveryNeeded,
     required String amountCents,
@@ -53,7 +53,7 @@ class HomeRepoImplementation extends HomeRepo {
         url: 'https://accept.paymob.com/api/ecommerce/orders',
         data: orderDataModel.toJson(),
       );
-      return Right(data['token']);
+      return Right(data['id']);
     } catch (ex) {
       if (ex is DioException) {
         return Left(ServerFailure.fromDioError(ex));

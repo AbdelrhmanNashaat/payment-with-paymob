@@ -5,7 +5,7 @@ import '../models/order_data_model/shipping_data.dart';
 
 abstract class HomeRepo {
   Future<Either<ServerFailure, String>> getToken();
-  Future<Either<ServerFailure, String>> getOrderId({
+  Future<Either<ServerFailure, int>> getOrderId({
     required String authToken,
     required String deliveryNeeded,
     required String amountCents,
