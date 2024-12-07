@@ -3,7 +3,6 @@ import 'widgets/items_list.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -64,6 +63,3 @@ class TotalWidget extends StatelessWidget {
     );
   }
 }
-
-
-// 844EFE
