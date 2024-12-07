@@ -5,7 +5,7 @@ class GetOrderIdInitial extends GetOrderIdState {}
 class GetOrderIdLoading extends GetOrderIdState {}
 
 class GetOrderIdSuccess extends GetOrderIdState {
-  final int orderId;
+  final String orderId;
 
   GetOrderIdSuccess({required this.orderId});
 }

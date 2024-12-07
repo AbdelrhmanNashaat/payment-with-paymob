@@ -11,25 +11,25 @@ class GetOrderIdCubit extends Cubit<GetOrderIdState> {
   final List<Item> items = [
     Item(
       name: 'Polo Shirt for men',
-      amountCents: '3000',
+      amountCents: '65000',
       quantity: '1',
       description: 'mens polo shirt',
     ),
     Item(
       name: 'Scott Bag',
-      amountCents: '4200',
+      amountCents: '30000',
       quantity: '1',
       description: 'back bag',
     ),
     Item(
       name: 'Pro Tour Shoes',
-      amountCents: '15000',
+      amountCents: '80000',
       quantity: '1',
       description: 'running shoes',
     ),
     Item(
       name: 'T250 Headphones',
-      amountCents: '3000',
+      amountCents: '45000',
       quantity: '1',
       description: 'headphones',
     ),
@@ -58,7 +58,7 @@ class GetOrderIdCubit extends Cubit<GetOrderIdState> {
     emit(GetOrderIdLoading());
     final orderId = await homeRepo.getOrderId(
       authToken: authToken,
-      deliveryNeeded: false,
+      deliveryNeeded: "false",
       amountCents: '$totalAmountInCents',
       items: items,
       shippingData: shippingData,

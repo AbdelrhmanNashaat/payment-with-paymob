@@ -4,7 +4,7 @@ import 'shipping_details.dart';
 
 class OrderDataModel {
   final String authToken;
-  final bool deliveryNeeded;
+  final String deliveryNeeded;
   final String amountCents;
   String? currency;
   int? merchantOrderId;
@@ -26,7 +26,7 @@ class OrderDataModel {
   factory OrderDataModel.fromJson(Map<String, dynamic> json) {
     return OrderDataModel(
       authToken: json['auth_token'] as String,
-      deliveryNeeded: json['delivery_needed'] as bool,
+      deliveryNeeded: json['delivery_needed'] as String,
       amountCents: json['amount_cents'] as String,
       currency: json['currency'] as String?,
       merchantOrderId: json['merchant_order_id'] as int?,

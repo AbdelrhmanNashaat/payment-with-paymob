@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:dio/dio.dart';
 
 class ServerFailure {
@@ -42,7 +40,7 @@ class ServerFailure {
         return ServerFailure('Internal server error, please try later.');
       default:
         return ServerFailure(
-            'An unexpected error occurred, please try again. $e');
+            'An unexpected error occurred, please try again. error: ${response['message']}');
     }
   }
 }
