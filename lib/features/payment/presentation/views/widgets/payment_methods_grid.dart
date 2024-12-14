@@ -13,7 +13,7 @@ class PaymentMethodsGrid extends StatefulWidget {
 }
 
 class _PaymentMethodsGridState extends State<PaymentMethodsGrid> {
-  int selectedIndex = 0;
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     final List<PaymentMethodsGridModel> paymentList = [

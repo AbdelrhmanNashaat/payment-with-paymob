@@ -30,10 +30,5 @@ Steps to integrate paymob
 1. use the api to get token that is only available for only one hour 
 2. use the api to get order id then select method of payment
 3. use the api to get payment token
+to pay with kiosk use the api to get bill_reference
 */
-
-
-// get token by default 
-// get order id by default
-// select payment method 
-// get payment token

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:payment/core/utils/api_service.dart';
@@ -25,19 +26,19 @@ class PaymentRepoImplementation extends PaymentRepo {
         lockOrderWhenPaid: 'false',
         expiration: 3600,
         billingData: BillingData(
-          apartment: "803",
-          email: "claudette09@exa.com",
-          floor: "42",
-          firstName: "Clifford",
-          street: "Ethan Land",
-          building: "8028",
-          phoneNumber: "+86(8)9135210487",
+          apartment: "102",
+          email: "abdelrhman.nashaat22@gmail.com",
+          floor: "1",
+          firstName: "Abdelrhman",
+          street: "El-Sherouk Street",
+          building: "15",
+          phoneNumber: "+201014977210",
           shippingMethod: "PKG",
-          postalCode: "01898",
-          city: "Jaskolskiburgh",
-          country: "CR",
-          lastName: "Nicolas",
-          state: "Utah",
+          postalCode: "12345",
+          city: "Cairo",
+          country: "EG",
+          lastName: "Hussinen",
+          state: "Cairo",
         ),
       );
       var data = await apiService.post(
@@ -45,6 +46,59 @@ class PaymentRepoImplementation extends PaymentRepo {
         data: paymentModel.toJson(),
       );
       return Right(data['token']);
+    } catch (ex) {
+      if (ex is DioException) {
+        return Left(ServerFailure.fromDioError(ex));
+      } else {
+        return Left(
+          ServerFailure('ex is not DioException'),
+        );
+      }
+    }
+  }
+
+  @override
+  Future<Either<ServerFailure, int>> payWithKiosk(
+      {required String paymentToken}) async {
+    try {
+      var data = await apiService.post(
+        url: 'https://accept.paymob.com/api/acceptance/payments/pay',
+        data: {
+          "source": {
+            "identifier": "AGGREGATOR",
+            "subtype": "AGGREGATOR",
+          },
+          "payment_token": paymentToken,
+        },
+      );
+      return Right(data['data']['bill_reference']);
+    } catch (ex) {
+      if (ex is DioException) {
+        return Left(ServerFailure.fromDioError(ex));
+      } else {
+        return Left(
+          ServerFailure('ex is not DioException'),
+        );
+      }
+    }
+  }
+
+  @override
+  Future<Either<ServerFailure, String>> payWithMobileWallet(
+      {required String paymentToken}) async {
+    try {
+      var data = await apiService.post(
+        url: 'https://accept.paymob.com/api/acceptance/payments/pay',
+        data: {
+          "source": {
+            "identifier": "+201014977210",
+            "subtype": "WALLET",
+          },
+          "payment_token": paymentToken,
+        },
+      );
+      log('data: $data');
+      return Right(data['redirect_url']);
     } catch (ex) {
       if (ex is DioException) {
         return Left(ServerFailure.fromDioError(ex));

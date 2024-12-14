@@ -6,6 +6,7 @@ import '../../../../../core/widgets/custom_button.dart';
 import '../../../data/repo/payment_repo_implementation.dart';
 import '../../manager/get_payment_token_cubit/get_payment_token_cubit.dart';
 import '../../manager/get_payment_token_cubit/get_payment_token_state.dart';
+import '../pay_view.dart';
 
 class GetPaymentTokenButton extends StatelessWidget {
   const GetPaymentTokenButton({
@@ -22,6 +23,14 @@ class GetPaymentTokenButton extends StatelessWidget {
         listener: (context, state) {
           if (state is GetPaymentTokenSuccess) {
             SecretData.paymentToken = state.paymentToken;
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => PayView(
+                  paymentMethod: SecretData.integrationId.toString(),
+                ),
+              ),
+            );
           }
           if (state is GetPaymentTokenFailure) {
             log('Payment Token Error: ${state.message}');

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widgets/payment_methods_grid.dart';
-import 'widgets/payment_token_button.dart';
+import 'payment_methods_grid.dart';
+import 'payment_token_button.dart';
 
 class PaymentViewBody extends StatelessWidget {
   const PaymentViewBody({super.key});

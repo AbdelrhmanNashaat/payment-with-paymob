@@ -23,7 +23,10 @@ class HomeViewBodySuccessWidget extends StatelessWidget {
         children: [
           const CartListView(),
           const Spacer(),
-          const Divider(height: 20),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Divider(height: 20),
+          ),
           const TotalWidget(),
           const SizedBox(height: 20),
           BlocProvider(

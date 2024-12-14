@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'payment_view_body.dart';
+import 'widgets/payment_view_body.dart';
 
 class PaymentView extends StatelessWidget {
   const PaymentView({super.key});
