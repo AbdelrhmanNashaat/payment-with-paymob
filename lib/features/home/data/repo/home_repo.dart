@@ -1,15 +1,7 @@
 import 'package:dartz/dartz.dart';
-import '../../../../core/errors/failure.dart';
-import '../models/order_data_model/item.dart';
-import '../models/order_data_model/shipping_data.dart';
+import 'package:payment/core/errors/failure.dart';
 
 abstract class HomeRepo {
-  Future<Either<ServerFailure, String>> getToken();
-  Future<Either<ServerFailure, int>> getOrderId({
-    required String authToken,
-    required String deliveryNeeded,
-    required String amountCents,
-    required List<Item> items,
-    required ShippingData shippingData,
-  });
+  Future<Either<ServerFailure, String>> payIntention(
+      {required int paymentMethods});
 }

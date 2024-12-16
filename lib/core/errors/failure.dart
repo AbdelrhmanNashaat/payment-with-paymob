@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 
 class ServerFailure {
-  final String message;
-  ServerFailure(this.message);
+  final String errorMessage;
+  ServerFailure(this.errorMessage);
 
   factory ServerFailure.fromDioError(DioException dioError) {
     switch (dioError.type) {
@@ -40,7 +40,7 @@ class ServerFailure {
         return ServerFailure('Internal server error, please try later.');
       default:
         return ServerFailure(
-            'An unexpected error occurred, please try again. error: ${response['message']}');
+            'An unexpected error occurred, please try again. error: ${response.runtimeType}, $response');
     }
   }
 }

@@ -1,63 +1,55 @@
-class ShippingData {
+class BillingData {
   String? apartment;
-  String? email;
-  String? floor;
   String? firstName;
+  String? lastName;
   String? street;
   String? building;
   String? phoneNumber;
-  String? postalCode;
-  String? extraDescription;
   String? city;
   String? country;
-  String? lastName;
+  String? email;
+  String? floor;
   String? state;
 
-  ShippingData({
+  BillingData({
     this.apartment,
-    this.email,
-    this.floor,
     this.firstName,
+    this.lastName,
     this.street,
     this.building,
     this.phoneNumber,
-    this.postalCode,
-    this.extraDescription,
     this.city,
     this.country,
-    this.lastName,
+    this.email,
+    this.floor,
     this.state,
   });
 
-  factory ShippingData.fromJson(Map<String, dynamic> json) => ShippingData(
+  factory BillingData.fromJson(Map<String, dynamic> json) => BillingData(
         apartment: json['apartment'] as String?,
-        email: json['email'] as String?,
-        floor: json['floor'] as String?,
         firstName: json['first_name'] as String?,
+        lastName: json['last_name'] as String?,
         street: json['street'] as String?,
         building: json['building'] as String?,
         phoneNumber: json['phone_number'] as String?,
-        postalCode: json['postal_code'] as String?,
-        extraDescription: json['extra_description'] as String?,
         city: json['city'] as String?,
         country: json['country'] as String?,
-        lastName: json['last_name'] as String?,
+        email: json['email'] as String?,
+        floor: json['floor'] as String?,
         state: json['state'] as String?,
       );
 
   Map<String, dynamic> toJson() => {
         'apartment': apartment,
-        'email': email,
-        'floor': floor,
         'first_name': firstName,
+        'last_name': lastName,
         'street': street,
         'building': building,
         'phone_number': phoneNumber,
-        'postal_code': postalCode,
-        'extra_description': extraDescription,
         'city': city,
         'country': country,
-        'last_name': lastName,
+        'email': email,
+        'floor': floor,
         'state': state,
       };
 }

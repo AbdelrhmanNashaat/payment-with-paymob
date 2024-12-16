@@ -25,10 +25,7 @@ steps to integrate payment gateway in flutter
 4. pay the amount
 */
 
+
 /*
-Steps to integrate paymob
-1. use the api to get token that is only available for only one hour 
-2. use the api to get order id then select method of payment
-3. use the api to get payment token
-to pay with kiosk use the api to get bill_reference
+https://accept.paymobsolutions.com/api/acceptance/post_pay?publicKey=%3Cegy_pk_test_gcNxOWiwRwRh4tWB2DyduRkvQqCxozAi%3E&clientSecret=%3Cegy_csk_test_9fd6c648e8fa46fb9629a352841289e6%3E
 */

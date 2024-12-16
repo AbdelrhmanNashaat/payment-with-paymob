@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/widgets/custom_button.dart';
+import '../../manager/cubit/pay_intention_cubit.dart';
+import '../../manager/cubit/pay_intention_state.dart';
+import 'payment_methods_grid.dart';
+
+class BottomSheetWidget extends StatelessWidget {
+  const BottomSheetWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade200,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(36),
+          topRight: Radius.circular(36),
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const PaymentMethodsGrid(),
+          const SizedBox(height: 16),
+          BlocConsumer<PayIntentionCubit,PayIntentionState>(
+            listener: (context, state) {
+             
+            },
+            builder: (context, state) {
+              return CustomButton(
+                      isLoading:state is PayIntentionLoading?true:false,
+                      text: 'Pay',
+                      onPressed: () {
+                        context.read<PayIntentionCubit>().payIntention(
+                              paymentMethods: ,
+                            );
+                      },
+                    );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
