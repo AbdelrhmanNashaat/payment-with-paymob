@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'widgets/items_list.dart';
-import 'widgets/pay_button.dart';
-import 'widgets/total_widget.dart';
+import 'items_list.dart';
+import 'pay_button.dart';
+import 'total_widget.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});

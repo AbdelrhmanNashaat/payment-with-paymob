@@ -13,7 +13,7 @@ import '../models/intention_model/item.dart';
 class HomeRepoImplementation extends HomeRepo {
   final ApiService apiService = ApiService();
   @override
-  Future<Either<ServerFailure, void>> payIntention(
+  Future<Either<ServerFailure, String>> payIntention(
       {required int paymentMethods}) async {
     try {
       var uuid = const Uuid();
@@ -69,8 +69,8 @@ class HomeRepoImplementation extends HomeRepo {
       );
       var response =
           await apiService.post(endPont: 'v1/intention/', data: data);
-      log('response: $response');
-      return const Right(null);
+      log('client secret: ${response['client_secret']}');
+      return Right(response['client_secret']);
     } catch (ex) {
       if (ex is DioException) {
         final dioError = ServerFailure.fromDioError(ex);

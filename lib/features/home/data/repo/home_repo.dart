@@ -2,6 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:payment/core/errors/failure.dart';
 
 abstract class HomeRepo {
-  Future<Either<ServerFailure, void>> payIntention(
+  Future<Either<ServerFailure, String>> payIntention(
       {required int paymentMethods});
 }

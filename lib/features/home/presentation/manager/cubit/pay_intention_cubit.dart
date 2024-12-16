@@ -11,7 +11,7 @@ class PayIntentionCubit extends Cubit<PayIntentionState> {
     final result = await homeRepo.payIntention(paymentMethods: paymentMethods);
     result.fold(
       (l) => emit(PayIntentionFailure(errorMessage: l.errorMessage)),
-      (r) => emit(PayIntentionSuccess()),
+      (r) => emit(PayIntentionSuccess(clinetSecret: r)),
     );
   }
 }
