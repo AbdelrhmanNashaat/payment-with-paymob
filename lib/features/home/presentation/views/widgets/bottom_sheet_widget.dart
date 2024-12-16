@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../data/models/payment_method_model.dart';
 import '../../manager/cubit/pay_intention_cubit.dart';
 import '../../manager/cubit/pay_intention_state.dart';
 import 'payment_methods_grid.dart';
 
-class BottomSheetWidget extends StatelessWidget {
+class BottomSheetWidget extends StatefulWidget {
   const BottomSheetWidget({
     super.key,
   });
 
+  @override
+  State<BottomSheetWidget> createState() => _BottomSheetWidgetState();
+}
+
+class _BottomSheetWidgetState extends State<BottomSheetWidget> {
+  PaymentMethodModel? selectedPaymentMethod;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,22 +31,28 @@ class BottomSheetWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const PaymentMethodsGrid(),
-          const SizedBox(height: 16),
-          BlocConsumer<PayIntentionCubit,PayIntentionState>(
-            listener: (context, state) {
-             
+          PaymentMethodsGrid(
+            onPaymentMethodSelected: (paymentMethod) {
+              setState(() {
+                selectedPaymentMethod = paymentMethod;
+              });
             },
+          ),
+          const SizedBox(height: 16),
+          BlocConsumer<PayIntentionCubit, PayIntentionState>(
+            listener: (context, state) {},
             builder: (context, state) {
               return CustomButton(
-                      isLoading:state is PayIntentionLoading?true:false,
-                      text: 'Pay',
-                      onPressed: () {
-                        context.read<PayIntentionCubit>().payIntention(
-                              paymentMethods: ,
-                            );
-                      },
-                    );
+                isLoading: state is PayIntentionLoading ? true : false,
+                text: 'Pay',
+                onPressed: () {
+                  if (selectedPaymentMethod != null) {
+                    context.read<PayIntentionCubit>().payIntention(
+                          paymentMethods: selectedPaymentMethod!.paymentMethod,
+                        );
+                  }
+                },
+              );
             },
           ),
         ],

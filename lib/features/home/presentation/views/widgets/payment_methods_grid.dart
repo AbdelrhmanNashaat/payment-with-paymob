@@ -1,13 +1,13 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:payment/core/utils/secret_data.dart';
 import 'package:payment/features/home/data/models/payment_method_model.dart';
 import 'payment_methods_container.dart';
 
 class PaymentMethodsGrid extends StatefulWidget {
+  final ValueChanged<PaymentMethodModel> onPaymentMethodSelected;
   const PaymentMethodsGrid({
     super.key,
+    required this.onPaymentMethodSelected,
   });
 
   @override
@@ -56,8 +56,8 @@ class _PaymentMethodsGridState extends State<PaymentMethodsGrid> {
           onPressed: () {
             setState(() {
               activeIndex = index;
-              log('activeIndex: $activeIndex');
             });
+            widget.onPaymentMethodSelected(paymentMethodList[index]);
           },
           isActive: index == activeIndex,
         );

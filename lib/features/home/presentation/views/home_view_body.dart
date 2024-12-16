@@ -8,7 +8,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8),
+      padding: EdgeInsets.symmetric(horizontal: 12),
       child: Column(
         children: [
           CartListView(),
@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
           TotalWidget(),
           SizedBox(height: 20),
           PayButton(),
-          SizedBox(height: 35),
+          SizedBox(height: 15),
         ],
       ),
     );
