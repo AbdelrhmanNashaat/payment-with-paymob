@@ -33,14 +33,17 @@ class ServerFailure {
       case 400:
       case 401:
       case 403:
-        return ServerFailure(response.toString());
+        return ServerFailure(
+            'response : ${response.toString()} error type: ${response.runtimeType}');
       case 404:
-        return ServerFailure('Requested resource not found, please try later.');
+        return ServerFailure(
+            'Requested resource not found, please try later. error type: ${response.runtimeType}, response: $response');
       case 500:
-        return ServerFailure('Internal server error, please try later.');
+        return ServerFailure(
+            'Internal server error, please try later. error type: ${response.runtimeType}, response: $response.');
       default:
         return ServerFailure(
-            'An unexpected error occurred, please try again. error: ${response.runtimeType}, $response');
+            'An unexpected error occurred, please try again. error type: ${response.runtimeType}, response: $response');
     }
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment/core/utils/secret_data.dart';
@@ -60,6 +62,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                 text: 'Pay',
                 onPressed: () {
                   if (selectedPaymentMethod != null) {
+                    log('Payment Method: ${selectedPaymentMethod!.paymentMethod}');
                     context.read<PayIntentionCubit>().payIntention(
                           paymentMethods: selectedPaymentMethod!.paymentMethod,
                         );
