@@ -1,9 +1,9 @@
-class PaymentMethodsGridModel {
+class PaymentMethodsListModel {
   final String text;
   final String imagePath;
   int? integrationId;
 
-  PaymentMethodsGridModel({
+  PaymentMethodsListModel({
     required this.text,
     required this.imagePath,
     this.integrationId,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../data/models/payment_methods_grid_model.dart';
+import '../../../data/models/payment_method_list_item_model.dart';
 
 class PaymentMethodContainer extends StatelessWidget {
-  final PaymentMethodsGridModel paymentMethodsGridModel;
+  final PaymentMethodsListModel paymentMethodsGridModel;
   final Function onTap;
   final bool isSelected;
 
@@ -18,9 +18,9 @@ class PaymentMethodContainer extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(),
       child: AnimatedContainer(
+        padding: const EdgeInsets.symmetric(horizontal: 18),
+        margin: const EdgeInsets.only(right: 10),
         duration: const Duration(milliseconds: 300),
-        width: double.infinity,
-        margin: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           border: Border.all(
             color: isSelected ? Colors.blueAccent : Colors.deepPurple,
@@ -35,15 +35,15 @@ class PaymentMethodContainer extends StatelessWidget {
               Text(
                 paymentMethodsGridModel.text,
                 style: TextStyle(
-                  fontSize: 26,
+                  fontSize: 16,
                   color: isSelected ? Colors.blueAccent : Colors.deepPurple,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 8),
               Image.asset(
                 paymentMethodsGridModel.imagePath,
-                height: 30,
+                height: 24,
                 fit: BoxFit.scaleDown,
               ),
             ],
