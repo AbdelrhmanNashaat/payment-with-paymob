@@ -23,14 +23,14 @@ class _PaymentMethodsListState extends State<PaymentMethodsList> {
         integrationId: SecretData.acceptKioskId,
       ),
       PaymentMethodsListModel(
-        text: 'Wallet',
-        imagePath: 'assets/images/wallet.png',
-        integrationId: SecretData.mobileWalletId,
-      ),
-      PaymentMethodsListModel(
         text: 'Card',
         imagePath: 'assets/images/atm-card.png',
         integrationId: SecretData.onlineCardId,
+      ),
+      PaymentMethodsListModel(
+        text: 'Wallet',
+        imagePath: 'assets/images/wallet.png',
+        integrationId: SecretData.mobileWalletId,
       ),
     ];
     return SizedBox(
@@ -49,7 +49,7 @@ class _PaymentMethodsListState extends State<PaymentMethodsList> {
                 selectedIndex = index;
               });
               if (paymentList[index].integrationId != null) {
-                // TODO
+                SecretData.integrationId = paymentList[index].integrationId!;
               }
             },
           );

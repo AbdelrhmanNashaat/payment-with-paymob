@@ -179,13 +179,15 @@ class PaymentRepoImplementation extends PaymentRepo {
           "payment_token": paymentToken,
         },
       );
-      return Right(data['data']['bill_reference']);
+      debugPrint('kiosk: done');
+      SecretData.kioskId = data['id'];
+      return Right(data['id']);
     } catch (ex) {
       if (ex is DioException) {
         return Left(ServerFailure.fromDioError(ex));
       } else {
         return Left(
-          ServerFailure('ex is not DioException'),
+          ServerFailure('ex is not DioException $ex'),
         );
       }
     }
@@ -205,6 +207,9 @@ class PaymentRepoImplementation extends PaymentRepo {
           "payment_token": paymentToken,
         },
       );
+      debugPrint('mobile wallet : done');
+      debugPrint('mobile wallet url: ${data['iframe_redirection_url']}');
+      SecretData.mobileWalletUrl = data['iframe_redirection_url'];
       return Right(data['iframe_redirection_url']);
     } catch (ex) {
       if (ex is DioException) {

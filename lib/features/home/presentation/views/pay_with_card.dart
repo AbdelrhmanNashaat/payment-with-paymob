@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-class PayWithCard extends StatefulWidget {
+class PaymentWithInAppWebView extends StatefulWidget {
   final String url;
-  const PayWithCard({super.key, required this.url});
+  const PaymentWithInAppWebView({super.key, required this.url});
 
   @override
-  State<PayWithCard> createState() => _PayWithCardState();
+  State<PaymentWithInAppWebView> createState() =>
+      _PaymentWithInAppWebViewState();
 }
 
-class _PayWithCardState extends State<PayWithCard> {
+class _PaymentWithInAppWebViewState extends State<PaymentWithInAppWebView> {
   bool _isLoading = true;
 
   @override
