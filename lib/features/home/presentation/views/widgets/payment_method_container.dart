@@ -23,7 +23,7 @@ class PaymentMethodContainer extends StatelessWidget {
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
           border: Border.all(
-            color: isSelected ? Colors.blueAccent : Colors.deepPurple,
+            color: isSelected ? Colors.deepPurple : Colors.grey,
             width: 2,
           ),
           borderRadius: BorderRadius.circular(8),
@@ -34,9 +34,9 @@ class PaymentMethodContainer extends StatelessWidget {
             children: [
               Text(
                 paymentMethodsGridModel.text,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
-                  color: isSelected ? Colors.blueAccent : Colors.deepPurple,
+                  color: Colors.deepPurple,
                   fontWeight: FontWeight.w600,
                 ),
               ),
