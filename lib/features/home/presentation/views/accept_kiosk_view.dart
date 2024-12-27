@@ -26,9 +26,10 @@ class AcceptKioskView extends StatelessWidget {
               'You can use this code to pay',
               style: TextStyle(
                 fontSize: 18,
+                fontWeight: FontWeight.w500,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
             GestureDetector(
               onTap: () {
                 FlutterClipboard.copy(
