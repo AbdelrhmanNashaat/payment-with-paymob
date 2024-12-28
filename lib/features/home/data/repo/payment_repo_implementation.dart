@@ -76,7 +76,7 @@ class PaymentRepoImplementation extends PaymentRepo {
         firstName: "Abdelrhman",
         street: "123 Main St",
         building: "Building 1",
-        phoneNumber: "+1234567890",
+        phoneNumber: "01010101010",
         postalCode: "12345",
         extraDescription: "Near the park",
         city: "Cairo",
@@ -138,7 +138,7 @@ class PaymentRepoImplementation extends PaymentRepo {
           firstName: "Abdelrhman",
           street: "El-Sherouk Street",
           building: "15",
-          phoneNumber: "+201014977210",
+          phoneNumber: "01010101010",
           shippingMethod: "PKG",
           postalCode: "12345",
           city: "Cairo",
@@ -201,7 +201,7 @@ class PaymentRepoImplementation extends PaymentRepo {
         url: 'https://accept.paymob.com/api/acceptance/payments/pay',
         data: {
           "source": {
-            "identifier": "+201014977210",
+            "identifier": "01010101010",
             "subtype": "WALLET",
           },
           "payment_token": paymentToken,
